@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
       dice.push(Math.floor(Math.random() * 6 + 1))
     }
     console.log(`${username} rolled and got ${dice.join()}`)
-    io.sockets.in(room).emit('rolled', { rollType, position, hasDisadvantage, dice, username })
+    io.sockets.in(room).emit('rolled', { rollType, position, hasDisadvantage, dice, diceCount, username })
   })
 
   socket.on('disconnecting', (reason) => {
