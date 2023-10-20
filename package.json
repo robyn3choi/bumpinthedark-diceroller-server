@@ -9,7 +9,7 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "dev": "nodemon - exec 'ts-node' index.ts",
+    "dev": "NODE_ENV=development PORT=8080 nodemon - exec 'ts-node' index.ts",
     "start": "node ./dist/index.js",
     "build": "tsc -p ."
   },

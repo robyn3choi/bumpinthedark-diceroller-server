@@ -10,9 +10,15 @@ app.use(cors())
 
 const server = http.createServer(app)
 
+const origin = ['https://bumpinthedark-diceroller.vercel.app']
+
+if (process.env.NODE_ENV === 'development') {
+  origin.push('http://localhost:3000')
+}
+
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3000', 'https://bitd-diceroller.vercel.app'],
+    origin,
     methods: ['GET', 'POST'],
   },
 })
