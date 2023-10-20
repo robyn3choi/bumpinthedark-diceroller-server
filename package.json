@@ -1,7 +1,7 @@
 {
-  "name": "nco-diceroller-api",
+  "name": "bumpinthedark-diceroller-server",
   "version": "0.0.1",
-  "description": "Backend for bitd-diceroller",
+  "description": "Backend for bumpinthedark-diceroller",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
