@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
     io.to(room).emit('usersUpdated', usersInRoom)
   })
 
-  socket.on('roll', ({ rollType, position, hasDisadvantage, diceCount, room, username }) => {
+  socket.on('roll', ({ rollType, edition, position, actionType, hasDisadvantage, diceCount, room, username }) => {
     const dice: number[] = []
 
     let count = diceCount
@@ -52,7 +52,9 @@ io.on('connection', (socket) => {
       dice.push(Math.floor(Math.random() * 6 + 1))
     }
     console.log(`${username} rolled and got ${dice.join()}`)
-    io.sockets.in(room).emit('rolled', { rollType, position, hasDisadvantage, dice, diceCount, username })
+    io.sockets
+      .in(room)
+      .emit('rolled', { rollType, edition, position, actionType, hasDisadvantage, dice, diceCount, username })
   })
 
   socket.on('clocksUpdated', ({ clocks, room }) => {
